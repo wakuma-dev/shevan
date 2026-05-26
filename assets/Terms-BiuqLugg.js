@@ -1,0 +1,1 @@
+import{i as e,n as t}from"./index-BnKdkDr9.js";e();var n=t(),r=()=>(0,n.jsx)(`div`,{});export{r as default};
