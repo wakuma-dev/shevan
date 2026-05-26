@@ -24,8 +24,8 @@ export default function Login() {
   };
 
   return (
-    <div className="w-full mx-auto h-screen flex flex-col justify-center max-w-[300px] px-4 gap-4">
-      <div className="flex flex-col gap-1 w-full">
+    <div className="w-full mx-auto h-auto flex flex-col justify-center max-w-[400px] px-4 gap-4">
+      <div className="flex flex-col gap-1 w-full mt-10">
         <span className="text-[24px] font-semibold text-black">Sign in</span>
 
         <div className="flex gap-1">

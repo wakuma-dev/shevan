@@ -5,8 +5,7 @@ import { IoCloseOutline } from "react-icons/io5";
 import useMenu from "../../../app/store/useMenuStore";
 import navLinks from "../../../data/navLinks";
 import { NavLink } from "react-router-dom";
-import Login from "../../../pages/login/Login";
-import SignUp from "../../../pages/signup/SignUp";
+
 const MobileMenu = () => {
   const isOpen = useMenu((state) => state.isOpen);
   const toggleMenu = useMenu((state) => state.toggleMenu);

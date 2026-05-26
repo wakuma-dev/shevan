@@ -1,6 +1,6 @@
 {
   "name": "my-project",
-  "homepage": "https://wakuma-dev.github.io/shevan",
+   "homepage": "https://wakuma-dev.github.io/shevan",
   "private": true,
   "version": "0.0.0",
   "type": "module",

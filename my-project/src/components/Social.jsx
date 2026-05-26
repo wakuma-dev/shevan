@@ -8,7 +8,7 @@ const iconMap = {
 
 export default function Social() {
   return (
-    <div className="flex gap-3">
+    <div className="flex mt-4 lg:mt-0 gap-3">
       {SocialLinks.map((item, index) => (
         <a key={index} href={item.path} target="_blank">
           {iconMap[item.icon]}
