@@ -23,7 +23,7 @@ const CartIcon = () => {
     <div className="relative">
       <button
         onClick={toggleCart}
-        className="fixed top-1/2 right-10 md:right-18  -translate-y-1/2 cursor-pointer z-[99]"
+        className="fixed top-1/2 right-10 md:right-20  -translate-y-1/2 cursor-pointer z-[99]"
       >
         <HiOutlineShoppingBag size={20} />
       </button>
@@ -82,7 +82,7 @@ const CartIcon = () => {
                     {cartItems.map((item) => (
                       <div
                         key={item.id}
-                        className="w-full flex items-center gap-1"
+                        className="w-full flex items-start gap-2"
                       >
                         <img
                           src={item.image}
@@ -90,51 +90,53 @@ const CartIcon = () => {
                           className="w-16 h-16 object-cover rounded-md"
                         />
                         <div className="flex flex-col gap-1">
-                          <span>{item.name}</span>
-                          <div className="flex gap-2 mt-2">
+                          <span className="text-[16px] leading-[26px] font-normal text-[#030303]">
+                            {item.name}
+                          </span>
+                          <div className="flex items-start gap-3">
                             <button
                               onClick={() => decreaseQty(item.id)}
                               className="cursor-pointer"
                             >
-                              <FiMinus size={12} />
+                              <FiMinus size={15} />
                             </button>
-                            <span>{item.quantity}</span>
+                            <span className="-mt-2">{item.quantity}</span>
                             <button
                               onClick={() => increaseQty(item.id)}
                               className="cursor-pointer"
                             >
-                              <FaPlus size={12} />
+                              <FaPlus size={15} />
                             </button>
                           </div>
-                          <button className="mt-4 outline-none bg-transparent cursor-pointer"
+                          <button className="outline-none bg-transparent cursor-pointer"
                            onClick={() => removeFromCart(item.id)}>
                             Remove
         
                           </button>
                         </div>
-                        <span className="ml-auto">
+                        <span className="ml-20">
                           ${getTotalPrice().toFixed(2)}
                         </span>
                       </div>
                     ))}
                   </div>
-                  <div className="mt-10 w-full flex flex-col items-center gap-3">
+                  <div className="mt-[300px] w-full flex flex-col items-center justify-end gap-3 ">
                     <div className="flex justify-between w-full px-4">
-                      <span>Subtotal</span>
-                      <span>${getTotalPrice().toFixed(2)}</span>
+                      <span className="text-[16px] leading-[26px] text-[#030303] font-normal">Subtotal</span>
+                      <span className="text-[16px] leading-[26px] text-[#030303] font-normal">${getTotalPrice().toFixed(2)}</span>
                     </div>
-                    <p>
+                    <p className="text-[16px] leading-[21px] text-[#030303] hover:text-[#419338] transition-all duration-100 font-normal">
                       Taxes and <span className="border-b border-[#030303]">shipping</span> calculated at
                       checkout{" "}
                     </p>
-                    <button className="bg-[#030303] text-white w-full p-3
-                     hover:bg-white hover:text-black transition-all duration-150"
+                    <button className="bg-[#419338] cursor-pointer border border-[#030303] bg-[#030303] text-white w-full py-2
+                      hover:text-black transition-all duration-150"
                       onClick={() => {
                         navigate("/checkout");
                         closeCart();
                       }}
                      >
-
+                       Check out
                      </button>
                   </div>
                 </>

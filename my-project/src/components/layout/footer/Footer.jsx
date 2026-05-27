@@ -5,7 +5,7 @@ import Social from "../../Social";
 
 const Footer = () => {
   return (
-    <footer className="w-full h-auto lg:min-h-[500px] flex flex-col gap-5 px-4 md:px-8 lg:px-12 py-5">
+    <footer className="w-full h-auto lg:min-h-[300px] flex flex-col gap-5 px-4 md:px-8 lg:px-12 py-12">
       <div className="flex flex-col lg:flex-row items-center lg:items-start justify-between">
         <div className="flex flex-col mt-10 lg:mt-0 items-center lg:items-start gap-1 lg:gap-2">
           <NavLink to="/customer" className="text-[16px] hover:text-[#419338]">
