@@ -13,7 +13,7 @@ export default function SearchIcon() {
         initial={{ y: -10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: -10, opacity: 0 }}
-        className="p-2 cursor-pointer"
+        className="hidden lg:block  cursor-pointer"
       >
         <CiSearch size={20} />
       </motion.button>

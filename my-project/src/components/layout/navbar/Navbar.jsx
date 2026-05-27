@@ -4,6 +4,7 @@ import SearchIcon from "./SearchIcon";
 
 import UserIcon from "./UserIcon";
 import MobileMenu from "./MobileMenu";
+import CartIcon from "./CartIcon";
 
 const Navbar = memo(function Navbar({ isScrolled }) {
   return (
@@ -13,14 +14,13 @@ const Navbar = memo(function Navbar({ isScrolled }) {
          isScrolled ? "shadow-md" : ""
        }`}
     >
-     
-        <MobileMenu />
-        <Logo />
-        <div className="flex items-center gap-2">
-          <SearchIcon />
-          <UserIcon />
-        </div>
- 
+      <MobileMenu />
+      <Logo />
+      <div className="flex items-center gap-4">
+        <SearchIcon />
+        <CartIcon />
+        <UserIcon />
+      </div>
     </nav>
   );
 });

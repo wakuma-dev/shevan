@@ -55,7 +55,7 @@ export default function PrivacyModal({ onClose }) {
             </span>
 
             {/* rest of your content unchanged */}
-            <p className="mb-4 text-[14px] leading-[21px] text-[#000000] font-normal">
+            <p className="mb-4 text-[12px] leading-[14px] lg:text-[14px] lg:leading-[21px] text-[#000000] font-normal">
               This Privacy Policy describes how sheytan.world (the "Site", "we",
               "us", or "our") collects, uses, and discloses your personal
               information when you visit, use our services, or make a purchase
@@ -66,18 +66,18 @@ export default function PrivacyModal({ onClose }) {
               whose information we have collected pursuant to this Privacy
               Policy.
             </p>
-            <p className="mb-4 text-[14px] leading-[21px] text-[#000000] font-normal">
+            <p className="mb-4  text-[12px] leading-[14px] lg:text-[14px] lg:leading-[21px]  text-[#000000] font-normal">
               Please read this Privacy Policy carefully. By using and accessing
               any of the Services, you agree to the collection, use, and
               disclosure of your information as described in this Privacy
               Policy. If you do not agree to this Privacy Policy, please do not
-              use or access any of the Services.
+              use or access any of the Services
             </p>
 
             <h3 className="text-xl font-semibold mt-6 mb-2">
               Changes to This Privacy Policy
             </h3>
-            <p className="mb-4 text-[14px] leading-[21px] text-[#000000] font-normal">
+            <p className="mb-4  text-[12px] leading-[14px] lg:text-[14px] lg:leading-[21px]  text-[#000000] font-normal">
               We may update this Privacy Policy from time to time, including to
               reflect changes to our practices or for other operational, legal,
               or regulatory reasons. We will post the revised Privacy Policy on
@@ -88,20 +88,20 @@ export default function PrivacyModal({ onClose }) {
             <h3 className="text-xl font-semibold mt-6 mb-2">
               How We Collect and Use Your Personal Information
             </h3>
-            <p className="mb-4 text-[14px] leading-[21px] text-[#000000] font-normal">
+            <p className="mb-4  text-[12px] leading-[14px] lg:text-[14px] lg:leading-[21px]  text-[#000000] font-normal">
               To provide the Services, we collect and have collected over the
               past 12 months personal information about you from a variety of
               sources, as set out below. The information that we collect and use
               varies depending on how you interact with us.
             </p>
-            <p className="mb-4 text-[14px] leading-[21px] text-[#000000] font-normal">
+            <p className="mb-4  text-[12px] leading-[14px] lg:text-[14px] lg:leading-[21px]  text-[#000000] font-normal">
               In addition to the specific uses set out below, we may use
               information we collect about you to communicate with you, provide
               the Services, comply with any applicable legal obligations,
               enforce any applicable terms of service, and to protect or defend
               the Services, our rights, and the rights of our users or others.
             </p>
-            <p className="mb-4 text-[14px] leading-[21px] text-[#000000] font-normal">
+            <p className="mb-4  text-[12px] leading-[14px] lg:text-[14px] lg:leading-[21px]  text-[#000000] font-normal">
               Any information we obtain from third parties will be treated in
               accordance with this Privacy Policy. We are not responsible or
               liable for the accuracy of the information provided to us by third
