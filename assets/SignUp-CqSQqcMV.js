@@ -1,0 +1,1 @@
+import{s as e,u as t}from"./index-UntfH1gR.js";t();var n=e(),r=()=>(0,n.jsx)(`div`,{});export{r as default};

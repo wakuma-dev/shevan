@@ -1,1 +1,0 @@
-import{a as e,c as t}from"./index-CPCy4AvG.js";t();var n=e(),r=()=>(0,n.jsx)(`div`,{});export{r as default};
