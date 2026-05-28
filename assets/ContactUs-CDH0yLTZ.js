@@ -1,1 +1,0 @@
-import{h as e,l as t}from"./index-Da-XOSCw.js";e();var n=t(),r=()=>(0,n.jsx)(`div`,{});export{r as default};

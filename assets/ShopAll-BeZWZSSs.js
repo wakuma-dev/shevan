@@ -1,0 +1,1 @@
+import{f as e}from"./index-NIDtWnCX.js";var t=e();function n(){return(0,t.jsx)(`div`,{children:`abebe`})}export{n as default};

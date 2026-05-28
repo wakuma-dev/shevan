@@ -1,1 +1,0 @@
-import{_ as e,h as t}from"./index-Da-XOSCw.js";var n=e(t(),1);function r(e={}){let[t,r]=(0,n.useState)(e);return{values:t,handleChange:e=>{let{name:t,value:n}=e.target;r(e=>({...e,[t]:n}))},resetForm:()=>{r(e)}}}export{r as t};
