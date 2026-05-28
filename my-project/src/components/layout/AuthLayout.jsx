@@ -6,7 +6,7 @@ export default function AuthLayout(){
   return (
     <>
       <Navbar />
-      <main className='pt-10'>
+      <main className='pt-6'>
         <Outlet />
       </main>
     </>

@@ -27,7 +27,7 @@ const MobileMenu = () => {
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: "-100%", opacity: 0 }}
             transition={{ duration: 0.4, ease: "easeOut" }}
-            className="fixed top-0 left-0 h-screen w-[320px] md:w-[440px] bg-white z-[980]"
+            className="fixed top-0 left-0 h-screen w-[320px] md:w-[400px] bg-white z-[9999]"
           >
             <div className="flex flex-col items-start gap-4 px-4 mt-14">
               <ul className="flex flex-col items-start gap-4">

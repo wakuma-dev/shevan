@@ -120,7 +120,7 @@ const CartIcon = () => {
                       </div>
                     ))}
                   </div>
-                  <div className="mt-[300px] w-full flex flex-col items-center justify-end gap-3 ">
+                  <div className="w-full flex flex-col items-center justify-end gap-3 ">
                     <div className="flex justify-between w-full px-4">
                       <span className="text-[16px] leading-[26px] text-[#030303] font-normal">Subtotal</span>
                       <span className="text-[16px] leading-[26px] text-[#030303] font-normal">${getTotalPrice().toFixed(2)}</span>

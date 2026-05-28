@@ -29,7 +29,9 @@ export default function Hero(){
     return (
       <section
         ref={sectionRef}
-        className={`${isVisible ? "opacity-100" : "opacity-0"} flex flex-col items-start justify-end gap-3 px-4 py-12 w-full min-h-[80dvh] lg:min-h-[100dvh] transition-opacity duration-300 `}
+        className={`${isVisible ? "opacity-100" : "opacity-0"}
+         flex flex-col items-start justify-end gap-3 px-4 py-12
+          w-full min-h-[55dvh] md:min-h-[80dvh] lg:min-h-[100dvh] transition-opacity duration-300 `}
         style={bgStyle}
       >
         <h1 className="text-white text-[40px] leading-[30px] font-serif font-medium">shavan</h1>

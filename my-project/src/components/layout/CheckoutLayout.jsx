@@ -15,7 +15,7 @@ export default function CheckoutLayout() {
   return (
     <>
       <CheckoutNavbar isScrolled={isScrolled} />
-      <main className="pt-10">
+      <main className="pt-6">
         <Outlet />
       </main>
     </>
