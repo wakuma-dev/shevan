@@ -25,6 +25,19 @@ export default function Products() {
     });
   }, [products, filters]);
 
+  // Show "no products" message when filteredProducts is empty
+  if (filteredProducts.length === 0) {
+    return (
+      <section className="w-full bg-white px-4 md:px-8 lg:px-12">
+        <div className="flex justify-start items-center min-h-[400px]">
+          <p className="text-[16px] leading-[26px] text-[#030303] font-normal">
+            Sorry, there are no products in this collection.
+          </p>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className="w-full bg-white px-4 md:px-8 lg:px-12">
       <Grid>

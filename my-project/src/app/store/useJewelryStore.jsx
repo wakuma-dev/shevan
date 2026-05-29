@@ -7,7 +7,18 @@ import img5 from "../../assets/affe365a46497fd8872578667f6dee8b.jpg";
 import img6 from "../../assets/f70399cca90f1017ce5c05f92486e974.jpg";
 import img7 from "../../assets/38e3160ee11535d73a60cec52828686c.jpg";
 import img8 from "../../assets/7fa464f4f68c36178cdfb1929d30d1a7.jpg";
-
+import img9 from "../../assets/452e0b310fa02c99ebffc2a0e82205e2.jpg";
+import img10 from "../../assets/26195b66ce0dd3b6c8487a0eaf7a301c.jpg";
+import img11 from "../../assets/0fae9d6a0c1117b8202a903afa18f322.jpg";
+import img12 from "../../assets/c0d7e0f4bc9143e21ac3e66d591cf552.jpg";
+import img13 from "../../assets/d2a7816649ab3aa56b5173e208374fa7.jpg";
+import img14 from "../../assets/8a05b2ae6a3c60d0afeab43f5b659db2.jpg";
+import img15 from "../../assets/98427a8540e3390848946bc4338a904d.jpg";
+import img16 from "../../assets/be582a8200a11fdcad2a179c7bb90d66.jpg";
+import img17 from "../../assets/60376dc181b6595b4d9e2987aaf23c72.jpg";
+import img18 from "../../assets/a3fa1076740f20ed844a8b4d4d8126d9.jpg";
+import img19 from "../../assets/3be4d3457a225f8a16925776ad536d4c.jpg";
+import img20 from "../../assets/9e0c22039747c5a37fe4ac4f2c49384a.jpg";
 const useJewelryStore = create((set, get) => ({
   products: [
     {
@@ -17,7 +28,7 @@ const useJewelryStore = create((set, get) => ({
       category: "Women",
       material: "Gold",
       price: 120.0,
-      image: img1,
+      image: img17,
     },
     {
       id: 2,
@@ -62,7 +73,7 @@ const useJewelryStore = create((set, get) => ({
       category: "Women",
       material: "Sapphire",
       price: 180.0,
-      image: img6,
+      image: img18,
     },
     {
       id: 7,
@@ -82,6 +93,96 @@ const useJewelryStore = create((set, get) => ({
       price: 90.0,
       image: img8,
     },
+    {
+      id: 9,
+      name: "Vernita Anklet",
+      type: "Ankle Chain",
+      category: "women",
+      material: "gold",
+      price: 100.0,
+      image: img9,
+    },
+    {
+      id: 10,
+      name: "Clarice Crystal Tennis Anklet",
+      type: "Ankle Chain",
+      category: "women",
+      material: "gold",
+      price: 120,
+      image: img10,
+    },
+    {
+      id: 11,
+      name: "Minimal Gold Anklet",
+      type: "Ankle Chain",
+      category: "women",
+      material: "gold",
+      price: 140,
+      image: img11,
+    },
+    {
+      id: 12,
+      name: "Vernita Crystal Bra Chain",
+      type: "Body Chain",
+      category: "women",
+      material: "gold",
+      price: 250.0,
+      image: img12,
+    },
+    {
+      id: 13,
+      name: "Anais Diamond Body",
+      type: "Body Chain",
+      category: "women",
+      material: "gold",
+      price: 340.0,
+      image: img13
+    },
+    {
+      id: 14,
+      name: " Emerald Gold Waist Chain",
+      type: "Body Chain",
+      category: "women",
+      material: "gold",
+      price: 380.0,
+      image: img14
+    },
+    {
+      id: 15,
+      name: "Severine Hand Lariat",
+      type: "Hand Chain",
+      category: "women",
+      material: "gold",
+      price: 270.0,
+      image: img15
+    },
+    {
+      id: 16,
+      name: "The Girl 'Shevan' Hand Lariat ",
+      type: "Hand Chain",
+      category: "women",
+      material: "gold",
+      price: 240.0,
+      image: img16,
+    },
+    {
+      id: 17,
+      name: "The Girl 'Shevan' Waist Chain",
+      type: "Waist Chain",
+      category: "Women",
+      material: "gold",
+      price: 270.0,
+      image: img19
+    },
+    {
+      id: 18,
+      name: "Severine Waist Chain",
+      type: "Waist Chain",
+      category: "women",
+      material: "gold",
+      price: 290.0,
+      image: img20
+    }
   ],
 
   filters: {
