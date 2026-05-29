@@ -166,12 +166,14 @@ export default function Filter() {
                           className="flex items-center gap-2 text-[16px] leading-[26px] font-normal text-[#030303] hover:text-[#419338] transition-all duration-150 cursor-pointer"
                         >
                           <input
-                            type="radio"
-                            onClick={closeFilter}
+                            type="checkbox"
                             checked={(filters.type || []).includes(type)}
                             onChange={() => handleCheckbox("type", type)}
-                            className="w-2.5 h-2.5"
+                            className="w-2.5 h-2.5 outline-none appearance-none border border-gray-300 
+                            rounded-full checked:bg-[#419338] checked:border-[#419338]
+                          hover:checked:bg-[#2e6b28] cursor-pointer transition-all duration-150"
                           />
+
                           {type}
                         </label>
                       ))}

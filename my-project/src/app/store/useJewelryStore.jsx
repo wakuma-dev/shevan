@@ -29,6 +29,8 @@ const useJewelryStore = create((set, get) => ({
       material: "Gold",
       price: 120.0,
       image: img17,
+      soldCount: 40,
+      createdAt: "2024-01-15T10:30:00Z",
     },
     {
       id: 2,
@@ -38,6 +40,8 @@ const useJewelryStore = create((set, get) => ({
       material: "Diamond",
       price: 250.0,
       image: img2,
+      soldCount: 100,
+      createdAt: "2026-03-15T10:30:00Z",
     },
     {
       id: 3,
@@ -47,6 +51,8 @@ const useJewelryStore = create((set, get) => ({
       material: "Silver",
       price: 80.0,
       image: img3,
+      soldCount: 20,
+      createdAt: "2022-08-15T10:30:00Z",
     },
     {
       id: 4,
@@ -56,6 +62,8 @@ const useJewelryStore = create((set, get) => ({
       material: "Pearl",
       price: 150.0,
       image: img4,
+      soldCount: 130,
+      createdAt: "2024-08-15T10:30:00Z",
     },
     {
       id: 5,
@@ -65,6 +73,8 @@ const useJewelryStore = create((set, get) => ({
       material: "Gold",
       price: 200.0,
       image: img5,
+      soldCount: 80,
+      createdAt: "2026-03-24T11:30:00Z",
     },
     {
       id: 6,
@@ -74,6 +84,8 @@ const useJewelryStore = create((set, get) => ({
       material: "Sapphire",
       price: 180.0,
       image: img18,
+      soldCount: 70,
+      createdAt: "2025-01-15T10:30:00Z",
     },
     {
       id: 7,
@@ -83,6 +95,8 @@ const useJewelryStore = create((set, get) => ({
       material: "Emerald",
       price: 220.0,
       image: img7,
+      soldCount: 60,
+      createdAt: "2023-01-25T12:30:00Z",
     },
     {
       id: 8,
@@ -92,6 +106,8 @@ const useJewelryStore = create((set, get) => ({
       material: "Amethyst",
       price: 90.0,
       image: img8,
+      soldCount: 60,
+      createdAt: "2025-04-15T10:50:00Z",
     },
     {
       id: 9,
@@ -101,6 +117,8 @@ const useJewelryStore = create((set, get) => ({
       material: "gold",
       price: 100.0,
       image: img9,
+      soldCount: 20,
+      createdAt: "2021-01-15T10:30:00Z",
     },
     {
       id: 10,
@@ -110,6 +128,8 @@ const useJewelryStore = create((set, get) => ({
       material: "gold",
       price: 120,
       image: img10,
+      soldCount: 200,
+      createdAt: "2025-03-25T03:30:00Z",
     },
     {
       id: 11,
@@ -119,6 +139,8 @@ const useJewelryStore = create((set, get) => ({
       material: "gold",
       price: 140,
       image: img11,
+      soldCount: 300,
+      createdAt: "2025-01-15T10:30:00Z",
     },
     {
       id: 12,
@@ -128,6 +150,8 @@ const useJewelryStore = create((set, get) => ({
       material: "gold",
       price: 250.0,
       image: img12,
+      soldCount: 800,
+      createdAt: "2022-01-15T10:30:00Z",
     },
     {
       id: 13,
@@ -136,7 +160,9 @@ const useJewelryStore = create((set, get) => ({
       category: "women",
       material: "gold",
       price: 340.0,
-      image: img13
+      image: img13,
+      soldCount: 380,
+      createdAt: "2023-09-15T10:30:00Z",
     },
     {
       id: 14,
@@ -145,7 +171,9 @@ const useJewelryStore = create((set, get) => ({
       category: "women",
       material: "gold",
       price: 380.0,
-      image: img14
+      image: img14,
+      soldCount: 440,
+      createdAt: "2026-03-15T10:30:00Z",
     },
     {
       id: 15,
@@ -154,7 +182,9 @@ const useJewelryStore = create((set, get) => ({
       category: "women",
       material: "gold",
       price: 270.0,
-      image: img15
+      image: img15,
+      soldCount: 450,
+      createdAt: "2025-11-05T10:30:00Z",
     },
     {
       id: 16,
@@ -164,6 +194,8 @@ const useJewelryStore = create((set, get) => ({
       material: "gold",
       price: 240.0,
       image: img16,
+      soldCount: 230,
+      createdAt: "2023-11-15T10:30:00Z",
     },
     {
       id: 17,
@@ -172,7 +204,9 @@ const useJewelryStore = create((set, get) => ({
       category: "Women",
       material: "gold",
       price: 270.0,
-      image: img19
+      image: img19,
+      soldCount: 230,
+      createdAt: "2022-11-15T10:30:00Z",
     },
     {
       id: 18,
@@ -181,8 +215,10 @@ const useJewelryStore = create((set, get) => ({
       category: "women",
       material: "gold",
       price: 290.0,
-      image: img20
-    }
+      image: img20,
+      soldCount: 120,
+      createdAt: "2025-01-15T10:30:00Z",
+    },
   ],
 
   filters: {
