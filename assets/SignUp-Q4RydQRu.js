@@ -1,1 +1,0 @@
-import{f as e,v as t}from"./index-NIDtWnCX.js";t();var n=e(),r=()=>(0,n.jsx)(`div`,{});export{r as default};
