@@ -27,7 +27,7 @@ const MobileMenu = () => {
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: "-100%", opacity: 0 }}
             transition={{ duration: 0.4, ease: "easeOut" }}
-            className="fixed top-0 left-0 h-screen w-[320px] md:w-[400px] bg-white z-[9999]"
+            className="fixed top-0 left-0 h-screen w-[320px] md:w-[400px] bg-white z-[999]"
           >
             <div className="flex flex-col items-start gap-4 px-4 mt-14">
               <ul className="flex flex-col items-start gap-4">
@@ -37,7 +37,7 @@ const MobileMenu = () => {
                       <NavLink
                         to={link.path}
                         onClick={closeMenu}
-                        className="text-[16px] leading-[26px] text-black capitalize font-medium"
+                        className="text-[18px] font-playfair leading-[26px] text-black capitalize font-medium"
                       >
                         {link.label}
                       </NavLink>
@@ -48,14 +48,14 @@ const MobileMenu = () => {
               <NavLink
                 to="/login"
                 onClick={closeMenu}
-                className="text-[16px] leading-[26px] text-black capitalize font-medium"
+                className="text-[18px] font-playfair leading-[26px] text-black capitalize font-medium"
               >
                 Log in
               </NavLink>
               <NavLink
                 to="/signup"
                 onClick={closeMenu}
-                className="text-[16px] leading-[26px] text-black capitalize font-medium"
+                className="text-[18px] font-playfair leading-[26px] text-black capitalize font-medium"
               >
                 Create Account
               </NavLink>

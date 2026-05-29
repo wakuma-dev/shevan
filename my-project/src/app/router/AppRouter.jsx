@@ -16,6 +16,7 @@ const Check = lazy(() => import("../../pages/check/Checkout.jsx"));
 const ShopAll = lazy(() => import("../../pages/shop all/ShopAll.jsx"));
 const Jewelry = lazy(() => import("../../pages/jewelry/Jewelry.jsx"));
 const ProductDetails = lazy(() => import("../../pages/jewelry/ProductDetails.jsx"));
+const CheckoutDetails = lazy(() => import("../../pages/check/components/CheckoutDetails.jsx"));
 export default function AppRouter() {
   return (
     <Suspense fallback={<div>Loading...</div>}>
@@ -30,6 +31,7 @@ export default function AppRouter() {
           <Route path="shop-all" element={<ShopAll />} />
           <Route path="/jewelry" element={<Jewelry />} />
           <Route path="/product/:id" element={<ProductDetails />} />
+          <Route path="/payment" element={<CheckoutDetails />} />
         </Route>
 
         <Route path="/login" element={<AuthLayout />}>

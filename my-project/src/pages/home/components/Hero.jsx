@@ -34,8 +34,8 @@ export default function Hero(){
           w-full min-h-[55dvh] md:min-h-[80dvh] lg:min-h-[100dvh] transition-opacity duration-300 `}
         style={bgStyle}
       >
-        <h1 className="text-white text-[40px] leading-[30px] font-serif font-medium">shavan</h1>
-        <p className="text-white text-[16px] leading-[18px] lg:text-[20px] lg:leading-[23px] font-sans"> Limited collections. Timeless design. No excess.</p>
+        <h1 className="text-white text-[40px] leading-[30px] font-playfair font-medium">shavan</h1>
+        <p className="text-white text-[16px] leading-[18px] font-roboto-serif lg:text-[20px] lg:leading-[23px] font-sans"> Limited collections. Timeless design. No excess.</p>
         <button className="outline-none bg-white text-black w-fit p-2 cursor-pointer"
         onClick={() => navigate("/collections")}>
             Explore Collection

@@ -34,12 +34,13 @@ export default function Sort() {
   return (
     <section className="relative">
       <div className="flex items-center gap-2">
-        <span className="text-[16px] leading-[26px] text-[#030303]">Sort</span>
+        <span className="text-[16px] leading-[26px] font-roboto-serif
+         text-[#030303] hover:text-[#419339] transition-all duration-150">Sort</span>
         <button
           onClick={toggleSort}
           className="cursor-pointer focus:outline-none"
         >
-          {isSortOpen ? <FiMinus size={15} /> : <FaPlus size={15} />}
+          {isSortOpen ? <FiMinus size={13} /> : <FaPlus size={13} />}
         </button>
       </div>
 
@@ -60,7 +61,7 @@ export default function Sort() {
                 <label
                   key={option.value}
                   className="flex items-center justify-start gap-3 cursor-pointer 
-                  text-[16px] leading-[26px] text-[#030303] hover:text-[#419338] transition-colors"
+                  text-[16px] leading-[26px] font-roboto-serif text-[#030303] hover:text-[#419338] transition-colors"
                 >
                   <input
                     type="radio"

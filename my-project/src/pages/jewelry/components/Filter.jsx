@@ -94,16 +94,17 @@ export default function Filter() {
 
   return (
     <section className="relative">
-      <div className="flex items-center justify-center">
+      <div className="flex items-center gap-2">
+        <span className="text-[16px] leading-[26px] font-roboto-serif text-[#030303] hover:text-[#419338]
+         transition-colors duration-150">
+          Filter
+        </span>
         <button
           onClick={toggleFilter}
           className="cursor-pointer z-[88] text-[16px] leading-[26px]
           text-[#030303] hover:text-[#419338] transition-colors duration-150"
         >
-          Filter{" "}
-          <span className="text-[16px] leading-[26px] text-[#030303] hover:text-[#419338] transition-colors duration-150">
-            +
-          </span>
+         <FaPlus size={13} />
         </button>
       </div>
 

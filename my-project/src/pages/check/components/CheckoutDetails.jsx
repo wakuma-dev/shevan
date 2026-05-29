@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import img from "../../../assets/Google_Pay-Logo.wine.png";
 import img2 from "../../../assets/paypal_PNG9.png";
 import useForm from "../../../hooks/useForm";
 
-// ---------- Default Checkout Form (Contact, Delivery, Payment) ----------
+// ---------- Default Checkout Form ----------
 function DefaultCheckoutForm() {
   const { values, handleChange } = useForm({
     email: "",
@@ -190,10 +190,10 @@ function DefaultCheckoutForm() {
   );
 }
 
-// ---------- Shop Checkout Component (simple form) ----------
-function ShopCheckout({ onBack }) {
+// ---------- Shop Checkout Component ----------
+export function ShopCheckout({ onBack }) {
+  const navigate = useNavigate();
   const [shopForm, setShopForm] = useState({
-  
     email: "",
     address: "",
   });
@@ -204,8 +204,11 @@ function ShopCheckout({ onBack }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle shop checkout logic here
     console.log("Shop order submitted", shopForm);
+  };
+
+  const handleBack = () => {
+    navigate(-1);
   };
 
   return (
@@ -244,7 +247,10 @@ function ShopCheckout({ onBack }) {
         </button>
       </form>
 
-      <button className="mt-24 capitalize text-[14px] leading-[21px] text-[#356BB2] cursor-pointer" onClick={onBack}>
+      <button
+        className="mt-24 capitalize text-[14px] leading-[21px] text-[#356BB2] cursor-pointer"
+        onClick={handleBack}
+      >
         back
       </button>
     </div>
@@ -253,7 +259,10 @@ function ShopCheckout({ onBack }) {
 
 // ---------- Main Checkout Page ----------
 export default function CheckoutDetails() {
-  const [mode, setMode] = useState("default"); // "default" or "shop"
+  const location = useLocation();
+  const initialMode =
+    location.state?.defaultMode === "shop" ? "shop" : "default";
+  const [mode, setMode] = useState(initialMode);
 
   return (
     <main className="overflow-x-hidden border-t border-[#DEDEDE] bg-white flex flex-col lg:flex-row w-full min-h-screen">
@@ -261,13 +270,11 @@ export default function CheckoutDetails() {
         <title>Checkout - shevan.world</title>
       </Helmet>
 
-      {/* LEFT SIDE */}
       <div className="overflow-x-auto w-full lg:w-1/2 flex flex-col gap-4 ml-0 lg:ml-[300px] p-8">
         <span className="text-center text-[14px] leading-[21px] text-[#707070]">
           Express checkout
         </span>
 
-        {/* PAYMENT BUTTONS */}
         <div className="w-full flex items-center gap-4">
           <button
             onClick={() => setMode("shop")}
@@ -275,7 +282,6 @@ export default function CheckoutDetails() {
           >
             Shop
           </button>
-
           <a
             href="https://www.paypal.com"
             target="_blank"
@@ -288,7 +294,6 @@ export default function CheckoutDetails() {
               className="w-full h-12 object-center"
             />
           </a>
-
           <a
             href="https://pay.google.com"
             target="_blank"
@@ -303,7 +308,6 @@ export default function CheckoutDetails() {
           </a>
         </div>
 
-        {/* CONDITIONAL RENDERING: Default form OR Shop component */}
         {mode === "default" ? (
           <>
             <span className="text-center text-[14px] uppercase leading-[21px] text-[#707070]">
@@ -316,7 +320,6 @@ export default function CheckoutDetails() {
         )}
       </div>
 
-      {/* RIGHT SIDE - ORDER SUMMARY */}
       <div className="w-full border-l border-[#dedede] lg:w-1/2 bg-[#F5F5F5] p-6 md:p-8 lg:p-12 overflow-y-hidden">
         <h2 className="text-[24px] font-semibold mb-4">Order Summary</h2>
         <div className="flex justify-between border-b border-[#DEDEDE] py-4">

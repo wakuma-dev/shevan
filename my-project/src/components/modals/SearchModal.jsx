@@ -24,7 +24,7 @@ export default function SearchModal({ onClose }) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-50 flex items-start justify-center bg-white py-6"
+      className="fixed top-20 left-0 w-screen z-[900] flex items-start justify-center bg-white py-6"
       onClick={(e) => {
         if (e.target === e.currentTarget) onClose(); // close on backdrop click
       }}
@@ -55,3 +55,4 @@ export default function SearchModal({ onClose }) {
 
   return createPortal(modalContent, document.body);
 }
+ 

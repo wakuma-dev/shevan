@@ -46,20 +46,20 @@ const CartIcon = () => {
             <div className="flex flex-col items-start gap-4 p-4 ">
               {cartItems.length === 0 ? (
                 <>
-                  <p className="font-serif text-[18px] leading-[26px] text-[#030303]">
+                  <p className="font-roboto-serif text-[18px] leading-[26px] text-[#030303]">
                     your cart -0 items
                   </p>
                   <div className="flex flex-col items-start gap-4 mt-14 font-serif">
-                    <h3 className="text-[25px] leading-[25px] font-serif font-normal text-[#030303]">
-                      Your cart{" "}
+                    <h3 className="text-[25px] leading-[25px] font-playfair font-normal text-[#030303]">
+                      Your Cart{" "}
                     </h3>
-                    <span className="text-[16px] leading-[26px] font-serif text-[#030303]">
+                    <span className="text-[16px] leading-[26px] font-roboto-serif text-[#030303]">
                       Your cart is currently empty.
                     </span>
                     <NavLink
                       className="text-[16px] leading-[26px] 
                       font-serif text-[#030303] border-b border-[#030303]
-                      hover:text-[#419338] hover:border-[#419338] py-1 transition-all duration-150"
+                      hover:text-[#419338] font-roboto-serif hover:border-[#419338] py-1 transition-all duration-150"
                       to="/"
                       onClick={() => {
                         navigate("/");
@@ -72,11 +72,11 @@ const CartIcon = () => {
                 </>
               ) : (
                 <>
-                  <p className="font-serif text-[18px] leading-[26px] text-[#030303]">
+                  <p className="font-roboto-serif text-[18px] leading-[26px] text-[#030303]">
                     your cart {cartItems.length} items
                   </p>
                   <div className="flex flex-col items-start gap-4 mt-14 font-serif">
-                    <h3 className="text-[25px] leading-[25px] font-serif font-normal text-[#030303]">
+                    <h3 className="text-[25px] font-playfair leading-[25px] font-normal text-[#030303]">
                       Your cart{" "}
                     </h3>
                     {cartItems.map((item) => (
