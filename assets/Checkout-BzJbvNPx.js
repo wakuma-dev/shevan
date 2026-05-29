@@ -1,0 +1,2 @@
+import{p as e}from"./index-BWBlOpOZ.js";import{t}from"./index.esm-BUdHnN-E.js";import"./useForm-CMtFKn31.js";import n from"./CheckoutDetails-C7N09g82.js";var r=e();function i(){return(0,r.jsxs)(`main`,{className:`overflow-x-hidden border-t border-[#DEDEDE]\r
+      bg-white flex flex-col lg:flex-row w-full min-h-screen`,children:[(0,r.jsx)(t,{children:(0,r.jsx)(`title`,{children:`Checkout - shevan.world`})}),(0,r.jsx)(n,{})]})}export{i as default};
