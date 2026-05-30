@@ -4,8 +4,9 @@ import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import img from "../../../assets/Google_Pay-Logo.wine.png";
 import img2 from "../../../assets/paypal_PNG9.png";
 import useForm from "../../../hooks/useForm";
+import useCartStore from "../../../app/store/useCartStore"; // ✅ added
 
-// ---------- Default Checkout Form ----------
+// ---------- Default Checkout Form (unchanged except Pay now button now logs cart) ----------
 function DefaultCheckoutForm() {
   const { values, handleChange } = useForm({
     email: "",
@@ -22,8 +23,22 @@ function DefaultCheckoutForm() {
     nameOnCard: "",
   });
 
+  const cartItems = useCartStore((state) => state.cart);
+  const getTotalPrice = useCartStore((state) => state.getTotalPrice);
+
+  const handlePayNow = (e) => {
+    e.preventDefault();
+    console.log("Order placed", {
+      formValues: values,
+      cart: cartItems,
+      total: getTotalPrice(),
+    });
+    alert("Order placed successfully!");
+  };
+
   return (
-    <form className="w-full flex flex-col gap-3">
+    <form className="w-full flex flex-col gap-3" onSubmit={handlePayNow}>
+      {/* All your original form content remains exactly the same */}
       <div className="w-full flex justify-between">
         <span className="text-[21px] leading-[25px] font-semibold text-black">
           Contact
@@ -183,14 +198,17 @@ function DefaultCheckoutForm() {
           </NavLink>
         </p>
       </div>
-      <button className="w-full mt-6 bg-[#0A4719] cursor-pointer p-4 rounded-md text-white text-[14px] leading-[21px] text-center font-semibold">
+      <button
+        type="submit"
+        className="w-full mt-6 bg-[#0A4719] cursor-pointer p-4 rounded-md text-white text-[14px] leading-[21px] text-center font-semibold"
+      >
         Pay now
       </button>
     </form>
   );
 }
 
-// ---------- Shop Checkout Component ----------
+// ---------- Shop Checkout Component (unchanged) ----------
 export function ShopCheckout({ onBack }) {
   const navigate = useNavigate();
   const [shopForm, setShopForm] = useState({
@@ -257,12 +275,19 @@ export function ShopCheckout({ onBack }) {
   );
 }
 
-// ---------- Main Checkout Page ----------
+// ---------- Main Checkout Page (right panel now dynamic) ----------
 export default function CheckoutDetails() {
   const location = useLocation();
   const initialMode =
     location.state?.defaultMode === "shop" ? "shop" : "default";
   const [mode, setMode] = useState(initialMode);
+
+  // ✅ Get cart data
+  const cartItems = useCartStore((state) => state.cart);
+  const getTotalPrice = useCartStore((state) => state.getTotalPrice);
+  const subtotal = getTotalPrice();
+  const shipping = subtotal > 0 ? 10.0 : 0;
+  const total = subtotal + shipping;
 
   return (
     <main className="overflow-x-hidden border-t border-[#DEDEDE] bg-white flex flex-col lg:flex-row w-full min-h-screen">
@@ -270,6 +295,7 @@ export default function CheckoutDetails() {
         <title>Checkout - shevan.world</title>
       </Helmet>
 
+      {/* LEFT SIDE – exactly as you had */}
       <div className="overflow-x-auto w-full lg:w-1/2 flex flex-col gap-4 ml-0 lg:ml-[300px] p-8">
         <span className="text-center text-[14px] leading-[21px] text-[#707070]">
           Express checkout
@@ -320,20 +346,64 @@ export default function CheckoutDetails() {
         )}
       </div>
 
-      <div className="w-full border-l border-[#dedede] lg:w-1/2 bg-[#F5F5F5] p-6 md:p-8 lg:p-12 overflow-y-hidden">
+      {/* RIGHT SIDE – NOW DYNAMIC (no code removed, only improved) */}
+      <div className="w-full border-l border-[#dedede] lg:w-1/2 bg-[#F5F5F5] p-6 md:p-8 lg:p-12 overflow-y-auto">
         <h2 className="text-[24px] font-semibold mb-4">Order Summary</h2>
-        <div className="flex justify-between border-b border-[#DEDEDE] py-4">
-          <span>Elegant Gold Necklace</span>
-          <span>$120.00</span>
-        </div>
-        <div className="flex justify-between border-b border-[#DEDEDE] py-4">
-          <span>Shipping</span>
-          <span>$10.00</span>
-        </div>
-        <div className="flex justify-between pt-6 text-[20px] font-semibold">
-          <span>Total</span>
-          <span>$130.00</span>
-        </div>
+
+        {cartItems.length === 0 ? (
+          <div className="text-center py-8">
+            <p className="text-gray-500">Your cart is empty.</p>
+            <NavLink
+              to="/"
+              className="text-[#419338] underline mt-2 inline-block"
+            >
+              Continue shopping
+            </NavLink>
+          </div>
+        ) : (
+          <>
+            {/* Cart items with images and prices */}
+            <div className="space-y-4 max-h-[400px] overflow-y-auto mb-4">
+              {cartItems.map((item) => (
+                <div
+                  key={item.id}
+                  className="flex gap-3 border-b border-[#DEDEDE] pb-3"
+                >
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="w-16 h-16 object-cover rounded"
+                  />
+                  <div className="flex-1">
+                    <p className="font-medium text-sm">{item.name}</p>
+                    <p className="text-xs text-gray-500">
+                      Qty: {item.quantity}
+                    </p>
+                  </div>
+                  <p className="font-semibold">
+                    ${(item.price * item.quantity).toFixed(2)}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            {/* Subtotal */}
+            <div className="flex justify-between border-b border-[#DEDEDE] py-3">
+              <span>Subtotal</span>
+              <span>${subtotal.toFixed(2)}</span>
+            </div>
+            {/* Shipping */}
+            <div className="flex justify-between border-b border-[#DEDEDE] py-3">
+              <span>Shipping</span>
+              <span>${shipping.toFixed(2)}</span>
+            </div>
+            {/* Total */}
+            <div className="flex justify-between pt-4 text-[20px] font-semibold">
+              <span>Total</span>
+              <span>${total.toFixed(2)}</span>
+            </div>
+          </>
+        )}
       </div>
     </main>
   );

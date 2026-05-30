@@ -1,5 +1,6 @@
 import React, {useState, useEffect, useRef} from 'react';
 import { useNavigate } from 'react-router-dom';
+
 import img from '../../../assets/ola-szkolda-66cEiQvv4Z0-unsplash.jpg';
 export default function Hero(){
     const navigate = useNavigate();

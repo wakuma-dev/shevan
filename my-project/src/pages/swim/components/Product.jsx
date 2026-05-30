@@ -1,13 +1,13 @@
-import { useMemo } from "react";
+import React, { useMemo } from "react";
 import { Link } from "react-router-dom";
-import useJewelryStore from "../../../app/store/useJewelryStore";
+import useSwimStore from "../../../app/store/useSwimStore";
+import Grid from "../../../components/common/Grid";
 import useSearchStore from "../../../app/store/useSearchStore";
 import useSortStore from "../../../app/store/useSortStore";
-import Grid from "../../../components/common/Grid";
 
-export default function Products() {
-  const products = useJewelryStore((state) => state.products);
-  const filters = useJewelryStore((state) => state.filters);
+export default function Product() {
+  const products = useSwimStore((state) => state.products) ?? [];
+  const filters = useSwimStore((state) => state.filters) ?? { type: [] };
   const searchQuery = useSearchStore((state) => state.query);
   const setQuery = useSearchStore((state) => state.setQuery);
   const sortBy = useSortStore((state) => state.sortBy);
@@ -19,16 +19,8 @@ export default function Products() {
       const query = searchQuery.toLowerCase().trim();
       result = result.filter(
         (product) =>
-          product.name.toLowerCase().includes(query) ||
-          product.type.toLowerCase().includes(query) ||
-          product.material.toLowerCase().includes(query) ||
-          product.category.toLowerCase().includes(query),
-      );
-    }
-
-    if (filters.category?.length > 0) {
-      result = result.filter((product) =>
-        filters.category.includes(product.category),
+          product.name?.toLowerCase().includes(query) ||
+          product.type?.toLowerCase().includes(query),
       );
     }
 
@@ -36,25 +28,13 @@ export default function Products() {
       result = result.filter((product) => filters.type.includes(product.type));
     }
 
-    if (filters.material?.length > 0) {
-      result = result.filter((product) =>
-        filters.material.includes(product.material),
-      );
-    }
-
-    const minPrice = filters.price?.min ?? 0;
-    const maxPrice = filters.price?.max ?? Infinity;
-    result = result.filter(
-      (product) => product.price >= minPrice && product.price <= maxPrice,
-    );
-
     return result;
-  }, [products, searchQuery, filters]);
+  }, [products, filters, searchQuery]);
 
   const sortedProducts = useMemo(() => {
     const productsToSort = [...filteredProducts];
     switch (sortBy) {
-      case "best-selling":
+      case "best_selling":
         return productsToSort.sort(
           (a, b) => (b.soldCount || 0) - (a.soldCount || 0),
         );
@@ -100,7 +80,7 @@ export default function Products() {
       <Grid>
         {sortedProducts.map((item) => (
           <Link
-            to={`/jewelry/product/${item.id}`} // ✅ absolute path
+            to={`/swim/product/${item.id}`} // ✅ absolute path
             key={item.id}
             className="block"
             onClick={handleProductClick}
@@ -112,16 +92,10 @@ export default function Products() {
                 className="w-full h-[250px] md:h-[500px] lg:h-[350px] object-cover"
               />
               <div className="flex flex-col items-start gap-1">
-                <h3
-                  className="text-[16px] leading-[26px] font-roboto-serif font-normal
-                 hover:text-[#419338] transition-colors duration-150"
-                >
+                <h3 className="text-[16px] leading-[26px] font-roboto-serif font-normal hover:text-[#419338] transition-all duration-150">
                   {item.name}
                 </h3>
-                <p
-                  className="text-[16px] leading-[26px] font-roboto-serif
-                 font-normal hover:text-[#419338] transition-colors duration-150"
-                >
+                <p className="text-[16px] leading-[16px] font-roboto-serif font-normal hover:text-[#419338] transition-all duration-150">
                   ${item.price.toFixed(2)}
                 </p>
               </div>

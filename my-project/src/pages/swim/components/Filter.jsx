@@ -1,18 +1,18 @@
 import React, { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { IoIosClose } from "react-icons/io";
-import useMenu from "../../../app/store/useMenuStore";
-import { FiMinus } from "react-icons/fi";
 import { FaPlus } from "react-icons/fa6";
-import useJewelryStore from "../../../app/store/useJewelryStore";
+import { motion, AnimatePresence } from "framer-motion";
+import { FiMinus } from "react-icons/fi";
+import useMenuStore from "../../../app/store/useMenuStore";
+import { IoIosClose } from "react-icons/io";
+import useSwimStore from "../../../app/store/useSwimStore";
 
 export default function Filter() {
-  const filters = useJewelryStore((state) => state.filters);
-  const setFilters = useJewelryStore((state) => state.setFilters);
+  const filters = useSwimStore((state) => state.filters);
+  const setFilters = useSwimStore((state) => state.setFilters);
   const [openSections, setOpenSections] = useState([]);
-  const closeFilter = useMenu((state) => state.closeFilter);
-  const isFilterOpen = useMenu((state) => state.isFilterOpen);
-  const toggleFilter = useMenu((state) => state.toggleFilter);
+  const closeFilter = useMenuStore((state) => state.closeFilter);
+  const isFilterOpen = useMenuStore((state) => state.isFilterOpen);
+  const toggleFilter = useMenuStore((state) => state.toggleFilter);
 
   const [minPrice, setMinPrice] = useState(filters.price?.min ?? "");
   const [maxPrice, setMaxPrice] = useState(filters.price?.max ?? "");
@@ -46,7 +46,7 @@ export default function Filter() {
       : [...currentArray, value];
     setFilters({ ...filters, [filterType]: newArray });
 
-    // Auto-close after 2 seconds
+    // Auto‑close after 2 seconds
     if (closeTimeoutRef.current) clearTimeout(closeTimeoutRef.current);
     closeTimeoutRef.current = setTimeout(() => {
       closeFilter();
@@ -64,6 +64,7 @@ export default function Filter() {
       },
     });
 
+    // Auto‑close after 2 seconds
     if (closeTimeoutRef.current) clearTimeout(closeTimeoutRef.current);
     closeTimeoutRef.current = setTimeout(() => {
       closeFilter();
@@ -81,12 +82,14 @@ export default function Filter() {
       },
     });
 
+    // Auto‑close after 2 seconds
     if (closeTimeoutRef.current) clearTimeout(closeTimeoutRef.current);
     closeTimeoutRef.current = setTimeout(() => {
       closeFilter();
     }, 2000);
   };
 
+  // Cleanup timeout on unmount
   useEffect(() => {
     return () => {
       if (closeTimeoutRef.current) clearTimeout(closeTimeoutRef.current);
@@ -98,14 +101,14 @@ export default function Filter() {
       <div className="flex items-center gap-2">
         <span
           className="text-[16px] leading-[26px] font-roboto-serif text-[#030303] hover:text-[#419338]
-         transition-colors duration-150"
+                transition-colors duration-150"
         >
           Filter
         </span>
         <button
           onClick={toggleFilter}
           className="cursor-pointer z-[88] text-[16px] leading-[26px]
-          text-[#030303] hover:text-[#419338] transition-colors duration-150"
+                 text-[#030303] hover:text-[#419338] transition-colors duration-150"
         >
           <FaPlus size={13} />
         </button>
@@ -119,7 +122,7 @@ export default function Filter() {
             exit={{ x: "-100%", opacity: 0 }}
             transition={{ duration: 0.4, ease: "easeOut" }}
             className="fixed top-0 left-0 h-screen w-[320px] md:w-[400px]
-            flex flex-col items-start bg-white z-[999] p-4"
+                   flex flex-col items-start bg-white z-[999] p-4"
           >
             <div className="flex items-center justify-between w-full">
               <span className="font-roboto-serif text-[16px] leading-[26px] text-[#030303]">
@@ -132,12 +135,10 @@ export default function Filter() {
                 <IoIosClose size={30} />
               </button>
             </div>
-
             <div className="flex flex-col items-start w-full mt-10">
-              {/* Product type section */}
               <div className="w-full">
                 <div className="flex items-center justify-between w-full">
-                  <h3 className="font-roboto-serif text-[16px] font-medium leading-[26px] text-[#030303]">
+                  <h3 className="text-[16px] leading-[26px] text-[#030303] font-medium font-roboto-serif">
                     Product type
                   </h3>
                   <button
@@ -158,28 +159,22 @@ export default function Filter() {
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.4, ease: "easeOut" }}
-                      className="overflow-hidden mt-4 flex flex-col gap-2 w-full"
+                      className="overflow-x-hidden w-full flex flex-col gap-2 mt-4"
                     >
-                      {[
-                        "Ankle Chain",
-                        "Body Chain",
-                        "Hand Chain",
-                        "Necklace",
-                        "Waist Chain",
-                      ].map((type) => (
+                      {["swimwear", "thong"].map((type) => (
                         <label
                           key={type}
-                          className="flex items-center gap-2 text-[16px]
-                           leading-[26px] font-normal text-[#030303]
-                            hover:text-[#419338] transition-all duration-150 cursor-pointer"
+                          className="flex items-center gap-2 text-[16px] leading-[26px]
+                                      text-[#030303] font-normal hover:text-[#419339] transition-colors
+                                      duration-150"
                         >
                           <input
                             type="checkbox"
                             checked={(filters.type || []).includes(type)}
                             onChange={() => handleCheckbox("type", type)}
                             className="w-2.5 h-2.5 outline-none appearance-none border border-gray-300 
-                            rounded-full checked:bg-[#419338] checked:border-[#419338]
-                          hover:checked:bg-[#2e6b28] cursor-pointer transition-all duration-150"
+                               rounded-full checked:bg-[#419338] checked:border-[#419338]
+                               hover:checked:bg-[#2e6b28] cursor-pointer transition-all duration-150"
                           />
                           <span
                             className={
@@ -197,7 +192,6 @@ export default function Filter() {
                 </AnimatePresence>
               </div>
 
-              {/* Price section */}
               <div className="w-full mt-6">
                 <div className="flex items-center justify-between w-full">
                   <h3 className="font-roboto-serif capitalize text-[16px] font-medium leading-[26px] text-[#030303]">
@@ -221,9 +215,9 @@ export default function Filter() {
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.4, ease: "easeOut" }}
-                      className="overflow-hidden mt-4"
+                      className="overflow-x-hidden w-full mt-4"
                     >
-                      <div className="flex items-center gap-6 justify-between w-full">
+                      <div className="flex items-center justify-between gap-6 w-full">
                         <div className="flex flex-col items-start gap-2 flex-1">
                           <span>From</span>
                           <div className="flex items-center gap-1 border border-black w-full">

@@ -15,11 +15,16 @@ const Collections = lazy(() => import("../../pages/collections/Collections.jsx")
 const Check = lazy(() => import("../../pages/check/Checkout.jsx"));
 const ShopAll = lazy(() => import("../../pages/shop all/ShopAll.jsx"));
 const Jewelry = lazy(() => import("../../pages/jewelry/Jewelry.jsx"));
-const ProductDetails = lazy(() => import("../../pages/jewelry/ProductDetails.jsx"));
+const Swim = lazy(() => import("../../pages/swim/Swim.jsx"));
+const SwimProductDetails = lazy(() => import("../../pages/swim/SwimProductDetails.jsx"));
+const JewelryProductDetails = lazy(() => import("../../pages/jewelry/JewelryProductDetails.jsx"));
 const CheckoutDetails = lazy(() => import("../../pages/check/components/CheckoutDetails.jsx"));
+import Loader from "../../components/common/Loader.jsx";
 export default function AppRouter() {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<div className="flex items-center justify-center min-h-screen">
+      <Loader />
+    </div>}>
       <Routes>
         <Route path="/" element={<MainLayout />}>
           <Route index element={<Home />} />
@@ -30,8 +35,11 @@ export default function AppRouter() {
           <Route path="/check" element={<Check />} />
           <Route path="shop-all" element={<ShopAll />} />
           <Route path="/jewelry" element={<Jewelry />} />
-          <Route path="/product/:id" element={<ProductDetails />} />
+          <Route path="/jewelry/product/:id" element={<JewelryProductDetails />} />
+          <Route path="/swim/product/:id" element={<SwimProductDetails />} />
+   
           <Route path="/payment" element={<CheckoutDetails />} />
+          <Route path="/swimwear" element={<Swim />} />
         </Route>
 
         <Route path="/login" element={<AuthLayout />}>
