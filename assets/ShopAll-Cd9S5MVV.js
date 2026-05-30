@@ -1,0 +1,1 @@
+import{p as e}from"./index-CNtXnWxp.js";var t=e();function n(){return(0,t.jsx)(`div`,{children:`abebe`})}export{n as default};

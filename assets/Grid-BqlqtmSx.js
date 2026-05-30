@@ -1,0 +1,1 @@
+import{c as e,p as t}from"./index-CNtXnWxp.js";var n=e(e=>({sortBy:`default`,setSortBy:t=>e({sortBy:t})})),r=t();function i({children:e}){return(0,r.jsx)(`div`,{className:`grid grid-cols-2 lg:grid-cols-5 gap-1.5 lg:gap-3`,children:e})}export{n,i as t};

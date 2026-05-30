@@ -1,1 +1,0 @@
-import{a as e,c as t,i as n}from"./index-BHmaV_yD.js";var r=t(e(e=>({user:null,token:null,isAuthenticated:!1,login:(t,n)=>e({user:t,token:n,isAuthenticated:!0}),logout:()=>e({user:null,token:null,isAuthenticated:!1})}),{name:`auth-storage`,storage:n(()=>localStorage)}));export{r as t};

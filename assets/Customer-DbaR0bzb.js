@@ -1,1 +1,0 @@
-import{b as e,p as t}from"./index-BHmaV_yD.js";e();var n=t(),r=()=>(0,n.jsx)(`div`,{});export{r as default};
